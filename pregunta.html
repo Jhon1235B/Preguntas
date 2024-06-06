@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¿Cuántos años tengo?</h1>
+        <div class="score" id="score">Puntos: 0</div>
+        <div class="options">
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">A) 20</button>
+            <button class="btn option" data-answer="correct" onclick="changeColor(this)">  B) 19</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">C) 22</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">D) 23</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">E) 25</button>
+        </div>
+        <div id="message" class="message"></div>
+        <button class="btn next" id="nextBtn" style="display: none;" onclick="window.location.href='next-question.html'">Siguiente Pregunta</button>
+    </div>
+    <script src="pregunta.js"></script>
+    <script>
+        function changeColor(button) {
+            button.classList.add('pressed');
+        }
+    </script>
+</body>
+</html>

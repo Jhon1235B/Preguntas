@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 10</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¿Qué quieres que cambie?</h1>
+        <div class="score" id="score">Puntos: 0</div>
+        <div class="options">
+            <input type="text" id="userAnswer" placeholder="Escribe tu respuesta aquí">
+        </div>
+        <div id="message" class="message"></div>
+        <button class="btn" onclick="saveAndRedirect()">Terminar</button>
+    </div>
+    
+    <script src="pregunta.js"></script>
+    <script>
+        function saveAndRedirect() {
+            var writtenAnswer = document.getElementById('userAnswer').value;
+            saveWrittenAnswer(writtenAnswer);
+            window.location.href = 'resultados.html';
+        }
+    </script>
+    <script>
+        function changeColor(button) {
+            button.classList.add('pressed');
+        }
+    </script>
+</body>
+</html>

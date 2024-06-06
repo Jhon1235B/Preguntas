@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¿Cuál es mi estación del año favorita?</h1>
+        <div class="score" id="score">Puntos: 0</div>
+        <div class="options">
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">A) Primavera</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">B) Otoño</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">C) Invierno</button>
+            <button class="btn option correct" data-answer="correct" onclick="changeColor(this)">D) Verano</button>
+        </div>
+        <div id="message" class="message"></div>
+        <button class="btn next" id="nextBtn" style="display: none;" onclick="window.location.href='pregunta8.html'">Siguiente Pregunta</button>
+    </div>
+    <script src="pregunta.js"></script>
+    <script>
+        function changeColor(button) {
+            button.classList.add('pressed');
+        }
+    </script>
+</body>
+</html>

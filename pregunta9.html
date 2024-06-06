@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 9</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¿Qué clase de música me gusta?</h1>
+        <div class="score" id="score">Puntos: 0</div>
+        <div class="options">
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">A) Romántica</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">B) Electrónica</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">C) Clásica</button>
+            <button class="btn option correct" data-answer="correct" onclick="changeColor(this)">D) Reguetón</button>
+            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">E) Metal</button>
+        </div>
+        <div id="message" class="message"></div>
+        <button class="btn next" id="nextBtn" style="display: none;" onclick="window.location.href='pregunta10.html'">Siguiente Pregunta</button>
+    </div>
+    <script src="pregunta.js"></script>
+    <script>
+        function saveAndCheckAnswer(answer) {
+            // Guardar la respuesta seleccionada en el almacenamiento local
+            var selectedAnswer = answer.split(')')[1].trim();
+            var correctAnswer = "Reguetón"; // Respuesta correcta
+            if (selectedAnswer === correctAnswer) {
+                saveAnswer(9, 'correct');
+            } else {
+                saveAnswer(9, 'incorrect');
+            }
+            // Luego de guardar la respuesta, deshabilitamos los botones de opción para evitar que el usuario seleccione otra respuesta
+            disableOptions();
+        }
+
+        function disableOptions() {
+            // Deshabilitar todos los botones de opción
+            var options = document.querySelectorAll('.btn.option');
+            options.forEach(function(option) {
+                option.disabled = true;
+            });
+        }
+    </script>
+    <script>
+        function changeColor(button) {
+            button.classList.add('pressed');
+        }
+    </script>
+</body>
+</html>
