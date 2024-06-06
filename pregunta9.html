@@ -5,22 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pregunta 9</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos adicionales aquí */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .score {
+            margin-bottom: 20px;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .correct {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .correct:hover {
+            background-color: #45a049;
+        }
+        .option {
+            background-color: #f44336;
+            color: white;
+        }
+        .option:hover {
+            background-color: #d32f2f;
+        }
+        .pressed {
+            opacity: 0.6;
+        }
+        .message {
+            margin-bottom: 20px;
+        }
+        .next {
+            background-color: #007bff;
+            color: white;
+        }
+        .next:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>¿Qué clase de música me gusta?</h1>
         <div class="score" id="score">Puntos: 0</div>
         <div class="options">
-            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">A) Romántica</button>
-            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">B) Electrónica</button>
-            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">C) Clásica</button>
-            <button class="btn option correct" data-answer="correct" onclick="changeColor(this)">D) Reguetón</button>
-            <button class="btn option" data-answer="incorrect" onclick="changeColor(this)">E) Metal</button>
+            <button class="btn option" data-answer="incorrect" onclick="saveAndCheckAnswer(this.innerText)">A) Romántica</button>
+            <button class="btn option" data-answer="incorrect" onclick="saveAndCheckAnswer(this.innerText)">B) Electrónica</button>
+            <button class="btn option" data-answer="incorrect" onclick="saveAndCheckAnswer(this.innerText)">C) Clásica</button>
+            <button class="btn option correct" data-answer="correct" onclick="saveAndCheckAnswer(this.innerText)">D) Reguetón</button>
+            <button class="btn option" data-answer="incorrect" onclick="saveAndCheckAnswer(this.innerText)">E) Metal</button>
         </div>
         <div id="message" class="message"></div>
         <button class="btn next" id="nextBtn" style="display: none;" onclick="window.location.href='pregunta10.html'">Siguiente Pregunta</button>
     </div>
-    <script src="pregunta.js"></script>
     <script>
         function saveAndCheckAnswer(answer) {
             // Guardar la respuesta seleccionada en el almacenamiento local
@@ -43,6 +112,7 @@
             });
         }
     </script>
+    <script src="pregunta.js"></script>
     <script>
         function changeColor(button) {
             button.classList.add('pressed');
